@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="../assets/logo-amf-azul.png" />
+  <title>AMF</title>
+</head>
+<body>
+  <div class="card-modal">
+    <img class="logo-amf-azul" src="../assets/logo-amf-azul.png" alt="Logo amf">
+    <span>Log In</span>
+    <form action="#" method="GET">
+
+      <div class="div-input">
+        <img
+          class="icon-input"
+          src="../assets/icon/user-icon.png"
+          alt="User icon"
+          onclick="document.getElementById('username').focus()"
+        >
+        <input type="text" name="username" id="username" placeholder="Username" required>
+      </div>
+      
+      <div class="div-input">
+        <img
+          class="icon-input"
+          src="../assets/icon/key-icon.png"
+          alt="Key icon"
+          onclick="document.getElementById('password').focus()"
+        >
+        <input type="password" name="password" id="password" placeholder="Password" required>
+      </div>
+
+      <input type="submit" value="Login"/>
+    </form>
+  </div>
+  <script>
+    (function () {
+      function adicionar() {
+        var dados = JSON.stringify({
+          username: document.querySelector("input[name=username]").value,
+          password: document.querySelector("input[name=password]").value,
+        });
+        localStorage.setItem("storage", JSON.stringify(dados));
+        window.location.href = 'Home.html';
+        alert("Logado com sucesso!");
+        return true;
+      }
+      var form = document.querySelector("form");
+      form.addEventListener("submit", function(event) {
+        event.preventDefault();
+        return adicionar();
+      });
+    })();
+  </script>
+</body>
+<style scoped>
+  * {
+    font-family: 'Roboto', sans-serif;
+  }
+
+  body {
+    height: 100vh;
+    min-width: 450px;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(40deg, rgba(0,202,255,1) 50%, rgba(0,138,255,1) 100%);
+    background-size: 400% 400%;
+    -webkit-animation: body 60s ease infinite;
+    -moz-animation: body 60s ease infinite;
+    animation: body 60s ease infinite;
+  }
+
+  @-webkit-keyframes body {
+    0%{background-position:94% 0%}
+    50%{background-position:7% 100%}
+    100%{background-position:94% 0%}
+  }
+  @-moz-keyframes body {
+    0%{background-position:94% 0%}
+    50%{background-position:7% 100%}
+    100%{background-position:94% 0%}
+  }
+  @keyframes body {
+    0%{background-position:94% 0%}
+    50%{background-position:7% 100%}
+    100%{background-position:94% 0%}
+  }
+
+  .card-modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    height: 70%;
+    width: 35%;
+    padding: 25px;
+    border-radius: 7px;
+  }
+
+  .logo-amf-azul {
+    margin-bottom: 20px;
+  }
+
+  span {
+    margin-top: 35px;
+    margin-bottom: 20px;
+    font-size: 28px;
+  }
+
+  form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .div-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .icon-input {
+    position: absolute;
+    margin-left: 80px;
+    cursor: text;
+  }
+
+  input {
+    margin: 5px 0px;
+    transition: border-color 2s ease-out;
+    background-color: #dcdcdc;
+    border: none;
+    height: 20px;
+    border-radius: 5px;
+    padding: 5px 5px 5px 10px;
+  }
+
+  input[type=submit] {
+    border: 1px rgb(133, 133, 133) solid;
+    width: 70%;
+    padding: 0;
+    border-radius: 10px;
+    background-color: #197dce;
+    transition: background-color, color 1.5s linear;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+
+  button:hover {
+    background-color: rgb(24, 112, 185);
+    color: #fff;
+  }
+</style>
+</html>
